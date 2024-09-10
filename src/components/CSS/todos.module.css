@@ -1,11 +1,38 @@
 .todoContainer{
-    border: 1px solid lightgray;
+    border: 1px solid white;
+    border-radius: 8px;
     padding: 10px;
     margin: 20px;
-    width: 15%;
+    width: 200px;
+    color: white;
+    background-color: rgba(240,240,240,0.1);
 }
 
 .subtitle{
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
     font-weight: bold;
+}
+
+.newTodo>form{
+    display: flex;
+    align-items: baseline;
+}
+.newTodo>form>input{
+    margin-top: 15px;
+    width: 100%;
+    border:none;
+    background: none;
+    color: white;
+    height: 2rem;
+}
+.newTodo>form>input:focus{
+    outline:none;
+}
+.newTodo>form>button{
+    color: white;
+    background: none;
+    border-radius: 5px;
+    /*border: none;*/
+    height: 2rem;
 }
