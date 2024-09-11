@@ -57,8 +57,6 @@ function Todos() {
     async function handleChangeStatus(id){
 
         let found = data.filter(item => item.id === id)[0];
-        // alert(id + !found.id);
-        alert(JSON.stringify({ id: id, status: !found.status }));
 
         try{
             let response = await fetch(URL+id, {
@@ -86,10 +84,10 @@ function Todos() {
                     <button type="submit">Add</button>
                 </form>
             </div>
-            <div className={styles.itemsList}>
+            <div>
                 {data.map(item => (
                     <div key={item.id} className={"card"}>
-                        <p className={styles.todoItem} onClick={() => handleChangeStatus(item.id)}>
+                        <p className={styles.todoItem} onChange={() => handleChangeStatus(item.id)}>
                             <input type={"checkbox"} id={item.id} checked={item.status} /> &nbsp;
                             <label htmlFor={item.id}> {item.content} </label>
                         </p>
