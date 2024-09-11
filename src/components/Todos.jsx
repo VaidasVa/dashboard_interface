@@ -5,67 +5,96 @@ function Todos() {
     const [data, setData] = useState([]);
     const URL = "http://localhost:8080/api/v1/todo/";
 
-    useEffect(() => fetchTodos)
+    useEffect(() => {
+        todoList();
+    }, []);
 
-    async function fetchTodos() {
-        const options = {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}};
+    let todoList = async () => {
         try {
-            const response = await fetch(URL+'all', options);
+            let response = await fetch(URL + 'all', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            });
             if (!response.ok) {
-                console.error(`HTTP error! Status: ${response.status}`);
-            } else {
-                return response.json()
-                    .then(data => setData(data));
-            }}
-        catch(error) {console.error('Error fetching data', error)}
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            let result = await response.json();
+            setData(result.reverse().sort((a, b) => a.status - b.status));
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+
+    let handleNewToDo = async (e) => {
+        e.preventDefault();
+        let newTodoContent = document.getElementById("todoNew").value;
+
+        if (!newTodoContent) {
+            console.log("Empty Todo input");
+            return;
+        }
+
+        try {
+            let response = await fetch(URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ content: newTodoContent })
+            });
+
+            if (response.ok) {
+                await todoList();
+                document.getElementById("todoNew").value = '';
+            }
+        } catch (error) {
+            console.error('Error saving new todo:', error);
+        }
+    };
+
+    async function handleChangeStatus(id){
+
+        let found = data.filter(item => item.id === id)[0];
+        // alert(id + !found.id);
+        alert(JSON.stringify({ id: id, status: !found.status }));
+
+        try{
+            let response = await fetch(URL+id, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: id, status: !found.status })
+            });
+
+            if (response.ok) {
+                await todoList();
+                document.getElementById("todoNew").value = '';
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
-    async function handleNewToDo(e){
-        e.preventDefault();
-        let inputText = document.getElementById("todoNew").value;
-        if(inputText === ""){
-            console.log("Empty Todo input");
-        }
-        else {
-            const requestOptions = {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({content: inputText})
-            };
-            try {
-                const response = await fetch('http://localhost:8080/api/v1/todo/', requestOptions);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                document.getElementById("todoNew").value = '';
-            } catch (error) {
-                console.error('Error saving new todo:', error);
-            }
-        }
-    }
 
     return (
         <div className={styles.todoContainer}>
-            <div>
-                <p className={styles.subtitle}>ToDo List</p>
+            <p className={styles.subtitle}>ToDo List</p>
+            <div className={styles.newTodo}>
+                <form onSubmit={handleNewToDo}>
+                    <input id="todoNew" placeholder="New to do"/>
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+            <div className={styles.itemsList}>
                 {data.map(item => (
                     <div key={item.id} className={"card"}>
-                        <p>{item.content}
-                            {/*<p>Created: {item.created}</p>*/}
-                            {/*<p>Updated: {item.updated}</p>*/}
-                            {/*Done: {item.status ? "✅" : "️no"}*/}
-                            {/*Deleted: {item.archived ? '✅' : 'No'}*/}
+                        <p className={styles.todoItem} onClick={() => handleChangeStatus(item.id)}>
+                            <input type={"checkbox"} id={item.id} checked={item.status} /> &nbsp;
+                            <label htmlFor={item.id}> {item.content} </label>
                         </p>
                     </div>
                 ))}
-            </div>
-            <div className={styles.newTodo}>
-                <form onSubmit={(e) => handleNewToDo(e)}>
-                    <input id={"todoNew"} placeholder={"New to do"}></input>
-                    <button id={"newTodoItem"}>Add</button>
-                </form>
             </div>
         </div>
     );

@@ -4,8 +4,11 @@
     padding: 10px;
     margin: 20px;
     width: 200px;
+    height:50vh;
     color: white;
     background-color: rgba(240,240,240,0.1);
+    overflow: auto;
+    scrollbar-width: none;
 }
 
 .subtitle{
@@ -17,11 +20,13 @@
 .newTodo>form{
     display: flex;
     align-items: baseline;
+    margin-bottom: 15px;
 }
 .newTodo>form>input{
     margin-top: 15px;
     width: 100%;
     border:none;
+    border-bottom: 1px solid blueviolet;
     background: none;
     color: white;
     height: 2rem;
@@ -33,6 +38,11 @@
     color: white;
     background: none;
     border-radius: 5px;
-    /*border: none;*/
     height: 2rem;
+}
+
+.todoItem{
+    padding : 2px 10px;
+    height : 1rem;
+    align-content: center;
 }
