@@ -55,9 +55,7 @@ function Todos() {
     };
 
     async function handleChangeStatus(id){
-
         let found = data.filter(item => item.id === id)[0];
-
         try{
             let response = await fetch(URL+id, {
                 method: 'PUT',
@@ -67,7 +65,21 @@ function Todos() {
 
             if (response.ok) {
                 await todoList();
-                document.getElementById("todoNew").value = '';
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function handleDelete(id){
+        try{
+            let response = await fetch(URL+id, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (response.ok) {
+                await todoList();
             }
         } catch (error) {
             console.log(error);
@@ -87,9 +99,13 @@ function Todos() {
             <div>
                 {data.map(item => (
                     <div key={item.id} className={"card"}>
-                        <p className={styles.todoItem} onChange={() => handleChangeStatus(item.id)}>
-                            <input type={"checkbox"} id={item.id} checked={item.status} /> &nbsp;
-                            <label htmlFor={item.id}> {item.content} </label>
+                        <p className={styles.todoItem} >
+                            <div className={styles.todoItemMain}>
+                                <input type={"checkbox"} id={item.id} checked={item.status} onChange={() => handleChangeStatus(item.id)} /> &nbsp;
+                                <label htmlFor={item.id}> {item.content} </label>
+                            </div>
+                            <div className={styles.trash}>
+                                <span id={"trashItem"} className={styles.trashItem} onClick={() => handleDelete(item.id)}>🗑️</span></div>
                         </p>
                     </div>
                 ))}

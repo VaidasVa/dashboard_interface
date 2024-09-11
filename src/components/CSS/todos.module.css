@@ -42,7 +42,18 @@
 }
 
 .todoItem{
+    display: flex;
     padding : 2px 10px;
-    height : 1rem;
-    align-content: center;
+    height : 1em;
+    /*align-content: baseline;*/
+    align-items: baseline;
+}
+.todoItemMain{
+    flex-grow: 9;
+}
+
+.trash{
+ flex-grow: 1;
+    text-align: end;
+    font-size: small;
 }
