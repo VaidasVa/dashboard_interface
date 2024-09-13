@@ -1,0 +1,127 @@
+.notesContainer{
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px;
+    width: 50%;
+    min-width: 500px;
+    height:50vh;
+    color: white;
+    background-color: rgba(240,240,240,0.1);
+    overflow: auto;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.notesHeader{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.subtitle{
+    flex-grow: 15;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.contentBoxes{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.notesList{
+    /*flex-grow: 1;*/
+    width: 25%;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(240,240,240,0.2) rgba(0,0,0,0);
+}
+
+
+.notesListItem{
+    background-color: rgba(240,240,240,0.2);
+    padding: 1px 5px;
+}
+
+.noteBodyContainer{
+    width: 75%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(240,240,240,0.2) rgba(0,0,0,0);
+    /*justify-content: space-between;*/
+}
+
+.noteBody{
+    height: 70%;
+    min-height: 200px;
+    background-color: rgba(240,240,240,0.2);
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.noteButtons{
+    margin-top: 5px;
+    max-height: 70px;
+    text-align: right;
+}
+
+.noteButtons>button{
+    margin-left: 5px;
+}
+Button{
+    background-color: rgba(240,240,240,0.2); ;
+    border: none;
+    border-radius: 50px;
+    padding: 0 10px;
+    font-size: 20px;
+    color: white;
+}
+
+.popup {
+    background-color: rgba(240,240,240,0.9);
+    padding: 10px;
+    width: auto;
+    min-width: 50vw;
+    height: 70%;
+    align-items: center;
+    border-radius: 20px;
+
+}
+
+.popupInput, .popupInputArea{
+    min-width: 45vw;
+    border-radius: 10px;
+}
+.popupInputArea{
+    min-height: 40vh
+}
+
+.popupInput:focus,
+.popupInputArea:focus{
+    outline: none;
+}
+
+.popupButtons, Button{
+    align-items: center;
+    text-align: center;
+}
+
+.popupCancelButton
+{
+    background-color: rgb(85,6,188);
+    text-align: center;
+    padding: 5px 30px;
+}
+
+.popupSubmitButton{
+    background-color: rgb(85,6,188);
+    margin-left: 10px;
+    padding: 5px 50px;
+}
+

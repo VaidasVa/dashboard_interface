@@ -96,9 +96,9 @@ function Todos() {
                     <button type="submit">Add</button>
                 </form>
             </div>
-            <div>
+            <div className={styles.card}>
                 {data.map(item => (
-                    <div key={item.id} className={"card"}>
+                    <div key={item.id} className={"card"} style={{"backgroundColor" : "rgba(240,240,240,0.7)"}}>
                         <p className={styles.todoItem} >
                             <div className={styles.todoItemMain}>
                                 <input type={"checkbox"} id={item.id} checked={item.status} onChange={() => handleChangeStatus(item.id)} /> &nbsp;
