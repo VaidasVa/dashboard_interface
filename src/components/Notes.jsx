@@ -9,7 +9,6 @@ import log from "eslint-plugin-react/lib/util/log.js";
 
 
 function Notes() {
-
     const [notes, setNotes] = React.useState([]);
     const[visible, setVisible] = React.useState(false);
     const URL = "http://localhost:8081/api/v1/notes/"
@@ -24,7 +23,8 @@ function Notes() {
 
     let allNotes = async() => {
         try
-        {let response = await fetch(URL + 'all', {
+        {
+            let response = await fetch(URL + 'all', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

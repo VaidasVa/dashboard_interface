@@ -1,17 +1,16 @@
 .notesContainer{
     border-radius: 8px;
     padding: 10px;
-    margin: 20px;
+    margin: 20px 0;
     width: 50%;
     min-width: 500px;
     height:50vh;
     color: white;
     background-color: rgba(240,240,240,0.1);
-    overflow: auto;
+    overflow-y: auto;
     scrollbar-width: none;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
 }
 
 .notesHeader{

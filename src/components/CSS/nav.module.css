@@ -1,9 +1,35 @@
 .nav{
+
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.5);
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+}
+
+.navTitle, .navWeather{
+    padding: 10px;
     font-size: 2em;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: white;
-    padding: 10px;
-    box-shadow: 0px 0px 10px rgb(0,0,0,0.5);
-    background-color: black;
+}
+
+.navTitle{
+    flex-grow: 9;
+}
+
+.navWeather{
+    flex-grow: 1;
+    text-align: end;
+    align-items: baseline;
+}
+
+
+
+.temp > span{
+  font-size: 1.2rem;
+}
+
+.weatherIco{
+    height: 30px;
 }
