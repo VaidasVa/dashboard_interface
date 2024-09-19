@@ -1,0 +1,23 @@
+.newsContainer{
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px;
+    color: white;
+    background-color: rgba(240,240,240,0.1);
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.subtitle{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.card{
+    background-color: rgba(240,240,240,0.7);
+    padding: 5px;
+}

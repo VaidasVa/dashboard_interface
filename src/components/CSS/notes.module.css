@@ -1,10 +1,10 @@
 .notesContainer{
     border-radius: 8px;
     padding: 10px;
-    margin: 20px 0;
-    width: 50%;
-    min-width: 500px;
-    height:50vh;
+    margin: 20px;
+    /*width: 50%;*/
+    /*min-width: 500px;*/
+    /*height:50vh;*/
     color: white;
     background-color: rgba(240,240,240,0.1);
     overflow-y: auto;
@@ -86,15 +86,15 @@ Button{
 .popup {
     background-color: rgba(240,240,240,0.9);
     padding: 10px;
-    width: auto;
+    width: 70%;
     min-width: 50vw;
     align-items: center;
     border-radius: 20px;
-
 }
 
 .popupInput, .popupInputArea{
-    min-width: 45vw;
+    width: 67vw;
+    min-width: 100%;
     border-radius: 5px;
     border: none;
     margin-bottom: 10px;
@@ -113,8 +113,7 @@ Button{
     text-align: center;
 }
 
-.popupCancelButton
-{
+.popupCancelButton{
     background-color: rgb(113, 113, 113);
     text-align: center;
     padding: 5px 30px;

@@ -3,7 +3,7 @@ import styles from './CSS/todos.module.css';
 
 function Todos() {
     const [data, setData] = useState([]);
-    const URL = "http://localhost:8080/api/v1/todo/";
+    const URL = "http://localhost:8088/api/v1/todo/";
 
     useEffect(() => {
         todoList();
@@ -96,7 +96,7 @@ function Todos() {
                     <button type="submit">Add</button>
                 </form>
             </div>
-            <div className={styles.card}>
+            <div className={"card"}>
                 {data.map(item => (
                     <div key={item.id} className={"card"} style={{"backgroundColor" : "rgba(240,240,240,0.7)"}}>
                         <p className={styles.todoItem} >
