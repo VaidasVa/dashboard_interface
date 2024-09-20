@@ -9,7 +9,7 @@ function Notes() {
     const [notes, setNotes] = React.useState([]);
     const[visible, setVisible] = React.useState(false);
     const[visibleUpdate, setVisibleUpdate] = React.useState(false);
-    const URL = "http://localhost:8081/api/v1/notes/"
+    const URL = "http://192.168.50.50:8081/api/v1/notes/"
     const[newNoteTitle, setNewNoteTitle] = React.useState("");
     const[newNoteBody, setNewNoteBody] = React.useState("");
     const[tempNoteTitle, setTempNoteTitle] = React.useState("");

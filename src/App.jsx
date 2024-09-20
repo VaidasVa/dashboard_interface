@@ -3,7 +3,6 @@ import Nav from './components/Nav.jsx'
 import Todos from './components/Todos.jsx'
 import Notes from "./components/Notes.jsx";
 import NewsLrt from "./components/NewsLrt.jsx";
-// import styles from "./App.css"
 
 function App() {
 

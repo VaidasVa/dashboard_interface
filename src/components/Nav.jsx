@@ -6,7 +6,7 @@ function Nav() {
     const [temp, setTemp] = useState()
     const [icoUrl, setIcoUrl] = useState()
 
-    let URL = "http://127.0.0.1:5000/api/v1";
+    let URL = "http://192.168.50.50:5050/api/v1";
 
     useEffect(() => {
         getWeather()},[])

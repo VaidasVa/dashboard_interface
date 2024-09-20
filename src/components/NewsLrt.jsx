@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 
 function NewsLrt(){
     const [news, setNews] = useState([]);
-    const URL = "http://127.0.0.1:5000/api/v1/news";
+    const URL = "http://192.168.50.50:5050/api/v1/news";
 
     useEffect(() => {
         getNews();}, [])

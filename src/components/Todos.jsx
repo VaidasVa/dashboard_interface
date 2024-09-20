@@ -3,7 +3,7 @@ import styles from './CSS/todos.module.css';
 
 function Todos() {
     const [data, setData] = useState([]);
-    const URL = "http://localhost:8088/api/v1/todo/";
+    const URL = "http://192.168.50.50:8088/api/v1/todo/";
 
     useEffect(() => {
         todoList();
